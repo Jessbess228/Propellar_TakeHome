@@ -3,23 +3,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 1%; 
+  padding-top: 1%;
   background-color: #ffffff;
-  
+
 }
 
-
-.imageGrid {
+.tileGrid {
   display: flex;
   flex-direction: column;
-  width: max-content;      
-  margin: 0 auto;          
+  width: max-content;
+  margin: 0 auto;
 }
 
-.imageRow {
+.tileRow {
   display: flex;
   flex-direction: row;
- 
+
 }
 
 .tile img {
@@ -28,49 +27,49 @@
 }
 
 .zoomButtons {
- 
+
   display: flex;
   flex-direction: column;
-  position : absolute;
+  position: absolute;
   bottom: 1vh;
   right: 0.5vh;
   color: white;
-  
+
 }
+
 .zoomButtons button {
   font-size: 23px;
   margin-bottom: 1%;
   cursor: pointer;
-  width: 35px;;
+  width: 35px;
+  ;
 }
 
 .mapContainer {
   width: 100%;
   height: 100%;
-  max-width: 80vw;    
+  max-width: 80vw;
   max-height: 80vh;
   overflow: auto;
   position: centre;
 }
 
 .outerMapWrapper {
-  background: #666666;  
+  background: #666666;
   padding: 3%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  position: relative; 
-  min-height: 81vh;  
+  position: relative;
+  min-height: 81vh;
   width: 100%;
   max-width: 90vw;
-  
+
 }
 
 .backgroundWrapper {
   height: 99%;
   width: 98%;
-  background: #666666; 
+  background: #666666;
 }
-
-

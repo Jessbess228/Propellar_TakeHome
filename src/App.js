@@ -4,7 +4,7 @@ import './App.css';
 const tileCache = new Map(); 
 // key: z-x-y, value: image blob url
 
-// Helper component to fetch and display a single tile image
+// Helper component to fetch and display a single tile/image
 function TileImage({ z, x, y }) {
   const [imgUrl, setImgUrl] = useState(null);
 
@@ -28,11 +28,11 @@ function TileImage({ z, x, y }) {
       // free up memory when the component unmounts
       if (urlObject && !tileCache.has(key)) URL.revokeObjectURL(urlObject);
     };
-    // get image from url with these z x y values
+    // get tile from url with these z x y values
   }, [z, x, y]);
 
   return (
-    // Display the image
+    // Display the tile
     <div className="tile"> 
       {imgUrl ? <img src={imgUrl} alt={`Tile with coordinates ${z}-${x}-${y}`}/> : null}
     </div>
@@ -46,14 +46,14 @@ export default function App() {
   // Calculate the range for x and y (from 0 to 2^z - 1)
   const maxCoord = Math.pow(2, z);
   // 1 , 2, 4, 8 values for the 
-  // for loops to populate the page with images row by row
+  // for loops to populate the page with tiles row by row
 
   // Create a 2D array of tile coordinates
   const rows = [];
   for (let y = 0; y < maxCoord; y++) {
     const row = [];
     for (let x = 0; x < maxCoord; x++) {
-      row.push({ x, y }); // populate row array
+      row.push({ x, y }); // populate row array with x y values
     }
     rows.push(row); // add row to rows
   }
@@ -63,9 +63,9 @@ export default function App() {
       <div className="backgroundWrapper">
         <div className="outerMapWrapper">
           <div className="mapContainer">
-            <div className="imageGrid">
+            <div className="tileGrid">
               {rows.map((row, rowIndex) => (
-                <div className="imageRow" key={`row-${rowIndex}`}>
+                <div className="tileRow" key={`row-${rowIndex}`}>
                   {row.map(({ x, y }) => (
                     <TileImage key={`${z}-${x}-${y}`} z={z} x={x} y={y} />
                   ))}
