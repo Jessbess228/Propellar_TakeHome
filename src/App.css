@@ -3,26 +3,24 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  background-color: #ffffff
+  padding-top: 1%; 
+  background-color: #ffffff;
+  
 }
 
-body {
-  background-color: #ffffff;
-} 
+ 
 
 .imageGrid {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  
+  width: max-content;      
+  margin: 0 auto;          
 }
 
 .imageRow {
   display: flex;
   flex-direction: row;
-  justify-content: center; 
+  justify-content: flex-start; 
 }
 
 .tile img {
@@ -35,8 +33,8 @@ body {
   display: flex;
   flex-direction: column;
   position : absolute;
-  top: 90%;
-  left: 91%;
+  bottom: 1vh;
+  right: 0.5vh;
   color: white;
   
 }
@@ -48,24 +46,32 @@ body {
 }
 
 .mapContainer {
-  width: 950px;        
-  height: 900px;
+  width: 100%;
+  height: 100%;
+  max-width: 80vw;    
+  max-height: 80vh;
   overflow: auto;
-  box-sizing: x;
-  display: block; 
-  
+  position: centre;
 }
 
 .outerMapWrapper {
   background: #666666;  
-  padding-top: 3%;    
-  padding-left: 12%;
-  padding-right: 17%;
-  padding-bottom: 4%;
+  padding: 3%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative; 
+  min-height: 81vh;  
+  width: 100%;
+  max-width: 90vw;
+  
+}
+
+.backgroundWrapper {
+  height: 99%;
+  width: 98%;
+  background: #666666; 
 }
 
 

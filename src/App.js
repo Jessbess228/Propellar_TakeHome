@@ -48,17 +48,18 @@ export default function App() {
 
   return (
     <div className="App">
-      <div className="outerMapWrapper">
-        <div className="mapContainer">
-          <div className="imageGrid">
-            {rows.map((row, rowIndex) => (
-              <div className="imageRow" key={`row-${rowIndex}`}>
-                {row.map(({ x, y }) => (
-                  <TileImage key={`${z}-${x}-${y}`} z={z} x={x} y={y} />
-                ))}
-              </div>
-            ))}
-          </div>
+      <div className="backgroundWrapper">
+        <div className="outerMapWrapper">
+          <div className="mapContainer">
+            <div className="imageGrid">
+              {rows.map((row, rowIndex) => (
+                <div className="imageRow" key={`row-${rowIndex}`}>
+                  {row.map(({ x, y }) => (
+                    <TileImage key={`${z}-${x}-${y}`} z={z} x={x} y={y} />
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
           <div className="zoomButtons">
             <button onClick={() => setZ(z + 1)} disabled={z === 3}>+</button>
@@ -66,7 +67,7 @@ export default function App() {
           </div>
         </div>
       </div>
-    
+    </div>
   );
 }
 
