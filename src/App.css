@@ -2,18 +2,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
-  justify-content: center; 
+  justify-content: center;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  background-color: #ffffff
 }
 
 body {
-  background-color: #1d1f25;
+  background-color: #ffffff;
 } 
 
 .imageGrid {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
+  
 }
 
 .imageRow {
@@ -23,9 +26,7 @@ body {
 }
 
 .tile img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
+  object-fit: none;
   display: block;
 }
 
@@ -34,16 +35,37 @@ body {
   display: flex;
   flex-direction: column;
   position : absolute;
-  top: 61.5%;
-  left: 70%;
+  top: 90%;
+  left: 91%;
   color: white;
   
 }
 .zoomButtons button {
-  font-size: 25px;
-  margin-bottom: 8%;
+  font-size: 23px;
+  margin-bottom: 1%;
   cursor: pointer;
   width: 35px;;
+}
+
+.mapContainer {
+  width: 950px;        
+  height: 900px;
+  overflow: auto;
+  box-sizing: x;
+  display: block; 
+  
+}
+
+.outerMapWrapper {
+  background: #666666;  
+  padding-top: 3%;    
+  padding-left: 12%;
+  padding-right: 17%;
+  padding-bottom: 4%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 
