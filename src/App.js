@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import './App.css';
 
+const tileCache = new Map(); 
+// key: z-x-y, value: image blob url
+
 // Helper component to fetch and display a single tile image
 function TileImage({ z, x, y }) {
   const [imgUrl, setImgUrl] = useState(null);
 
   React.useEffect(() => {
-    let urlObject = null;
+   const key = `${z}-${x}-${y}`;
+   let urlObject = null;
+
+   if (tileCache.has(key)) {
+     setImgUrl(tileCache.get(key));
+     return;
+   }
     const url = `https://challenge-tiler.services.propelleraero.com/tiles/${z}/${x}/${y}?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiaW50ZXJuIiwiaWF0IjoxNzQ3OTY5OTAyfQ._nFA8un2_IMz23difs56tX4ono-oXApWk8y8YSkGkAw`;
     fetch(url)
       .then(res => res.blob())
@@ -16,13 +25,16 @@ function TileImage({ z, x, y }) {
       });
 
     return () => {
-      if (urlObject) URL.revokeObjectURL(urlObject);
+      // free up memory when the component unmounts
+      if (urlObject && !tileCache.has(key)) URL.revokeObjectURL(urlObject);
     };
+    // get image from url with these z x y values
   }, [z, x, y]);
 
   return (
-    <div className="tile">
-      {imgUrl ? <img src={imgUrl} alt={`Tile with coordinates ${z}-${x}-${y}`}/> : <div>Loading...</div>}
+    // Display the image
+    <div className="tile"> 
+      {imgUrl ? <img src={imgUrl} alt={`Tile with coordinates ${z}-${x}-${y}`}/> : null}
     </div>
   );
 }

@@ -8,7 +8,6 @@
   
 }
 
- 
 
 .imageGrid {
   display: flex;
@@ -20,7 +19,7 @@
 .imageRow {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start; 
+ 
 }
 
 .tile img {
